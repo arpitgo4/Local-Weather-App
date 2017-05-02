@@ -1,8 +1,26 @@
 html, body, #react-app {
 	height: 100%;
+	font-family: 'Roboto';
 }
 
 .container-fluid {
 	background-color: #161616;
 	color: white;
+}
+
+.header, .sun {
+	font-size: 5em;
+}
+
+.sun i {
+	animation: rotating 20s linear infinite;
+}
+
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
