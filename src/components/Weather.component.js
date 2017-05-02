@@ -12,7 +12,7 @@ export default class Weather extends React.Component {
 			location: '', 
 			temperature: '',
 			weather: '',
-			unit: '&#8451;'
+			unit: this.CELSIUS
 		};
 	}
 
@@ -28,10 +28,8 @@ export default class Weather extends React.Component {
 
 					<div className="row">
 						<div className="col-xs-12">
-						<p>{this.state.temperature}</p> 
-							<a href="javascript:void(0)">
-								<p dangerouslySetInnerHTML={{__html: this.state.unit}}></p>
-							</a>
+							<p>{this.state.temperature} </p> 
+							<p id="temp-unit" dangerouslySetInnerHTML={{ __html: this.state.unit }} />	
 						</div>
 					</div>
 
