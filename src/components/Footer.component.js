@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
 			<div className="row footer">
 				<div className="col-xs-12 text-center">
 					<p>
-						Inspired By <a href="javascript:void(0)">Arpit Goyal</a>
+						Inspired By <a href="https://github.com/arpitgo4" target="_blank">Arpit Goyal</a>
 					</p>
 				</div>
 			</div>
