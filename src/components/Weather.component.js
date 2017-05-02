@@ -34,12 +34,23 @@ export default class Weather extends React.Component {
 	}
 
 	componentDidMount() {
+		this.getLocation()
+			.then(location => {
+				console.log(location);
+				this.getWeather(location)
+					.then(weather => console.log(weather));
+			});
+	}
+
+	getWeather({city, country}) {
 		const API_KEY = '158a24e778ceb45f0133225f41883896';
 
-		superagent
-			.get(`http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${API_KEY}`)
-			end((err, res) => {
-				console.log(res.body);
-			});
+		return superagent
+				.get(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=${API_KEY}&units=metric`);
+	}
+
+	getLocation() {
+		return superagent
+			.get('https://ipinfo.io/json');
 	}
 }
