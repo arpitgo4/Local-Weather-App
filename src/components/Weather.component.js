@@ -64,10 +64,8 @@ export default class Weather extends React.Component {
 	componentDidMount() {
 		this.getLocation()
 			.then(location => {
-				console.log('location', location);
 				this.getWeather(location)
 					.then(weather => {
-						console.log('weather', weather);
 						this.setState(
 							{ 
 							 	location: `${location.body.city}, ${location.body.country}`,
