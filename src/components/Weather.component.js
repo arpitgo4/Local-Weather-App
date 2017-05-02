@@ -3,12 +3,16 @@ import superagent from 'superagent';
 
 export default class Weather extends React.Component {
 
+	CELSIUS = '&#8451;';
+	FAHRENHEIT = '&#8457;';
+
 	constructor() {
 		super();
 		this.state = {
 			location: '', 
 			temperature: '',
-			weather: ''
+			weather: '',
+			unit: ''
 		};
 	}
 
@@ -22,7 +26,7 @@ export default class Weather extends React.Component {
 					</div>
 
 					<div className="row">
-						<div className="col-xs-12">{this.state.temperature}</div>
+						<div className="col-xs-12">{`${this.state.temperature} ${this.state.unit}`}</div>
 					</div>
 
 					<div className="row">
@@ -36,9 +40,18 @@ export default class Weather extends React.Component {
 	componentDidMount() {
 		this.getLocation()
 			.then(location => {
-				console.log(location);
+				console.log('location', location);
 				this.getWeather(location)
-					.then(weather => console.log(weather));
+					.then(weather => {
+						console.log('weather', weather);
+						this.setState(
+							{ 
+							 	location: `${location.body.city}, ${location.body.country}`,
+								temperature: weather.body.main.temp,
+								weather: weather.body['weather'][0].main 
+							}
+						);
+					});
 			});
 	}
 
