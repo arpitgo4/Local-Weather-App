@@ -3,8 +3,8 @@ import superagent from 'superagent';
 
 export default class Weather extends React.Component {
 
-	CELSIUS = '&#8451;';
-	FAHRENHEIT = '&#8457;';
+	CELSIUS = 'C';
+	FAHRENHEIT = 'F';
 
 	constructor() {
 		super();
@@ -28,8 +28,8 @@ export default class Weather extends React.Component {
 
 					<div className="row">
 						<div className="col-xs-12">
-							<p>{this.state.temperature} </p> 
-							<p id="temp-unit" dangerouslySetInnerHTML={{ __html: this.state.unit }} />	
+							<p>{this.state.temperature} &deg;</p> 
+							<p onClick={this.toggleUnit.bind(this)} id="temp-unit" >{this.state.unit}</p>	
 						</div>
 					</div>
 
@@ -41,6 +41,24 @@ export default class Weather extends React.Component {
 				</div>
 			</div>
 		);
+	}
+
+	toggleUnit() {
+		const temp = this.state.temperature;
+		const currUnit = this.state.unit;
+		let toggledTemp, toggledUnit;
+		switch(currUnit) {
+			case this.CELSIUS: 
+				toggledUnit = this.FAHRENHEIT;
+				toggledTemp = Math.round(((9/5) * temp) + 32);
+				break;
+			case this.FAHRENHEIT: 
+				toggledUnit = this.CELSIUS;
+				toggledTemp = Math.round((temp - 32) * (5/9));
+			break;
+		}
+		console.log('state', { ...this.state, temperature: toggledTemp, unit: toggledUnit });
+		this.setState({ ...this.state, temperature: toggledTemp, unit: toggledUnit });
 	}
 
 	componentDidMount() {

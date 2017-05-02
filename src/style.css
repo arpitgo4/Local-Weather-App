@@ -19,10 +19,12 @@ html, body, #react-app {
 
 .weather #temp-unit {
 	color: blue;
+	font-size: 1.9em;
 }
 
 .weather #temp-unit:hover {
 	cursor: pointer;
+	color: #004f94;
 }
 
 .sun i {
