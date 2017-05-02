@@ -1,10 +1,13 @@
 html, body, #react-app {
 	height: 100%;
+}
+
+#react-app {
+	background-color: #161616;
 	font-family: 'Roboto';
 }
 
 .container-fluid {
-	background-color: #161616;
 	color: white;
 }
 
