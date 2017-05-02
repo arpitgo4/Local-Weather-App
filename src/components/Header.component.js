@@ -6,7 +6,7 @@ export default class Header extends React.Component {
 			<div className="header text-center">
 				<div className="row">
 						<div className="col-xs-12">
-							<p>Free C<i className="" />de Camp</p>
+							<p>Free C<i className="wi wi-hail" />de Camp</p>
 						</div>
 				</div>
 				<div className="row">
