@@ -11,6 +11,10 @@ html, body, #react-app {
 	color: white;
 }
 
+.header {
+	margin-top: 2%;
+}
+
 .header, .sun {
 	font-size: 5em;
 }
