@@ -12,25 +12,33 @@ export default class Weather extends React.Component {
 			location: '', 
 			temperature: '',
 			weather: '',
-			unit: ''
+			unit: '&#8451;'
 		};
 	}
 
 	render() {
 		return (
-			<div className="row text-center">
+			<div className="row text-center weather">
 				<div className="col-xs-12">
-
 					<div className="row">
-						<div className="col-xs-12">{this.state.location}</div>
+						<div className="col-xs-12">
+							<p>{this.state.location}</p>
+						</div>
 					</div>
 
 					<div className="row">
-						<div className="col-xs-12">{`${this.state.temperature} ${this.state.unit}`}</div>
+						<div className="col-xs-12">
+						<p>{this.state.temperature}</p> 
+							<a href="javascript:void(0)">
+								<p dangerouslySetInnerHTML={{__html: this.state.unit}}></p>
+							</a>
+						</div>
 					</div>
 
 					<div className="row">
-						<div className="col-xs-12">{this.state.weather}</div>
+						<div className="col-xs-12">
+							<p>{this.state.weather}</p>
+						</div>
 					</div>
 				</div>
 			</div>

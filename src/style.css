@@ -12,6 +12,10 @@ html, body, #react-app {
 	font-size: 5em;
 }
 
+.weather p {
+	display: inline;
+}
+
 .sun i {
 	animation: rotating 20s linear infinite;
 }
