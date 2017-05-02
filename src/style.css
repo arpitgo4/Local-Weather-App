@@ -17,6 +17,11 @@ html, body, #react-app {
 	font-size: 2em;
 }
 
+.col-xs-12 {
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+}
+
 .weather #temp-unit {
 	color: blue;
 	font-size: 1.9em;

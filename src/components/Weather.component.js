@@ -47,6 +47,7 @@ export default class Weather extends React.Component {
 		const temp = this.state.temperature;
 		const currUnit = this.state.unit;
 		let toggledTemp, toggledUnit;
+
 		switch(currUnit) {
 			case this.CELSIUS: 
 				toggledUnit = this.FAHRENHEIT;
@@ -55,9 +56,9 @@ export default class Weather extends React.Component {
 			case this.FAHRENHEIT: 
 				toggledUnit = this.CELSIUS;
 				toggledTemp = Math.round((temp - 32) * (5/9));
-			break;
+				break;
 		}
-		console.log('state', { ...this.state, temperature: toggledTemp, unit: toggledUnit });
+
 		this.setState({ ...this.state, temperature: toggledTemp, unit: toggledUnit });
 	}
 
